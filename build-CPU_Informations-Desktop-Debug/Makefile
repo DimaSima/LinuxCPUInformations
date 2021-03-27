@@ -117,6 +117,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../CPU_Informations/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -208,6 +209,7 @@ Makefile: ../CPU_Informations/CPU_Informations.pro /usr/lib/x86_64-linux-gnu/qt5
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -289,6 +291,7 @@ Makefile: ../CPU_Informations/CPU_Informations.pro /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -355,6 +358,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp
 qrc_qml.cpp: ../CPU_Informations/qml.qrc \
 		/usr/lib/qt5/bin/rcc \
+		../CPU_Informations/DisplayPage.qml \
 		../CPU_Informations/main.qml
 	/usr/lib/qt5/bin/rcc -name qml ../CPU_Informations/qml.qrc -o qrc_qml.cpp
 
@@ -380,10 +384,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean
 
 ####### Compile
 
-main.o: ../CPU_Informations/main.cpp 
+main.o: ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CPU_Informations/main.cpp
 
-read_data_stream.o: ../CPU_Informations/read_data_stream.cpp 
+read_data_stream.o: ../CPU_Informations/read_data_stream.cpp ../CPU_Informations/read_data_stream.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o read_data_stream.o ../CPU_Informations/read_data_stream.cpp
 
 qrc_qml.o: qrc_qml.cpp 
