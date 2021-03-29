@@ -9,13 +9,21 @@ std::vector<std::string> ReadCPUStats()
     std::ifstream cpuInfo("/proc/cpuinfo");
     std::string line;
     std::vector<std::string> cpu_vector;
+    int count_processor = 0;
 
     while (std::getline(cpuInfo,line))
     {
-        std::cout << line << std::endl;
-        cpu_vector.push_back(line);
+        //Parse not important information out, because too much text
+
+        if (line.compare(0,5,"flags")==0) {continue;}
+
+        else if (line.compare(0,4,"bugs")==0) {continue;}
+
+        else if (line.compare(0,9,"processor")==0) {count_processor+=1;}
+
+        else {cpu_vector.push_back(line);}
     }
-    std::cout << "Das ist der erste Eintrag:" << cpu_vector.at(0) << std::endl;
+    std::cout << "Anzahl Prozessoren: " << count_processor << std::endl;
     return cpu_vector;
 }
 
@@ -31,10 +39,6 @@ void parse_CPUVector(std::vector<std::string> *cpuVector)
             it = cpuVector->erase(it);
         }
         else if (*it == "flags")
-        {
-            it = cpuVector->erase(it);
-        }
-        else if (*it == "mulqdq")
         {
             it = cpuVector->erase(it);
         }

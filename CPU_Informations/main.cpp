@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     std::vector<std::string> cpu_stats;
     cpu_stats = ReadCPUStats();
-    parse_CPUVector(&cpu_stats);
+    //parse_CPUVector(&cpu_stats);
     print_CPUVector(&cpu_stats);
 
 

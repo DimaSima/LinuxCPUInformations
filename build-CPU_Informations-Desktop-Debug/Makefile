@@ -52,9 +52,11 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../CPU_Informations/main.cpp \
+SOURCES       = ../CPU_Informations/cpu.cpp \
+		../CPU_Informations/main.cpp \
 		../CPU_Informations/read_data_stream.cpp qrc_qml.cpp
-OBJECTS       = main.o \
+OBJECTS       = cpu.o \
+		main.o \
 		read_data_stream.o \
 		qrc_qml.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -117,6 +119,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../CPU_Informations/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -135,7 +138,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../CPU_Informations/CPU_Informations.pro ../CPU_Informations/read_data_stream.h ../CPU_Informations/main.cpp \
+		../CPU_Informations/CPU_Informations.pro ../CPU_Informations/cpu.h \
+		../CPU_Informations/read_data_stream.h ../CPU_Informations/cpu.cpp \
+		../CPU_Informations/main.cpp \
 		../CPU_Informations/read_data_stream.cpp
 QMAKE_TARGET  = CPU_Informations
 DESTDIR       = 
@@ -208,6 +213,7 @@ Makefile: ../CPU_Informations/CPU_Informations.pro /usr/lib/x86_64-linux-gnu/qt5
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -289,6 +295,7 @@ Makefile: ../CPU_Informations/CPU_Informations.pro /usr/lib/x86_64-linux-gnu/qt5
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -325,8 +332,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CPU_Informations/qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CPU_Informations/read_data_stream.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CPU_Informations/cpu.h ../CPU_Informations/read_data_stream.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CPU_Informations/cpu.cpp ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -380,6 +387,9 @@ compiler_lex_clean:
 compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean 
 
 ####### Compile
+
+cpu.o: ../CPU_Informations/cpu.cpp ../CPU_Informations/cpu.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cpu.o ../CPU_Informations/cpu.cpp
 
 main.o: ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CPU_Informations/main.cpp
