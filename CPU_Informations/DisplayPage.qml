@@ -10,5 +10,4 @@ Item {
         color: "green"
         visible: true
     }
-
 }

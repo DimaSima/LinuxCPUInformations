@@ -18,7 +18,12 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-    ReadStatsCPU();
+
+    std::vector<std::string> cpu_stats;
+    cpu_stats = ReadCPUStats();
+    parse_CPUVector(&cpu_stats);
+    print_CPUVector(&cpu_stats);
+
 
     return app.exec();
 }

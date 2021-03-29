@@ -11,16 +11,15 @@ Window {
     title: qsTr("Linux CPU Informations")
     Loader {id: displayloader}
     color: "dodgerblue"
+
     Label {
         text: qsTr("Welcome to the platform for the presentation of CPU information")
-        //width: parent.width/4
-        //height: parent.height/4
         font.pixelSize: 22
         font.italic: true
         anchors.bottom: btnid.top
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.margins: 20
+        anchors.margins: 40
     }
 
 
@@ -30,9 +29,11 @@ Window {
             color: "red"
             border.width: 1
             border.color: "black"
-            radius: 5
+            radius: 20
         }
         text: "Read in the CPU Informations"
+        font.pixelSize: 22
+        font.italic: true
         anchors.centerIn: parent
         onClicked: {
             displayloader.source = "DisplayPage.qml"
