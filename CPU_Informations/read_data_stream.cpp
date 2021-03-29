@@ -9,7 +9,6 @@ std::vector<std::string> ReadCPUStats()
     std::ifstream cpuInfo("/proc/cpuinfo");
     std::string line;
     std::vector<std::string> cpu_vector;
-    int count_processor = 0;
 
     while (std::getline(cpuInfo,line))
     {
@@ -19,11 +18,8 @@ std::vector<std::string> ReadCPUStats()
 
         else if (line.compare(0,4,"bugs")==0) {continue;}
 
-        else if (line.compare(0,9,"processor")==0) {count_processor+=1;}
-
         else {cpu_vector.push_back(line);}
     }
-    std::cout << "Anzahl Prozessoren: " << count_processor << std::endl;
     return cpu_vector;
 }
 

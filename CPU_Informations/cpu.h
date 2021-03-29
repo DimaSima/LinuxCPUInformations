@@ -3,12 +3,13 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 
 class cpu
 {
 public:
-    cpu();
+    cpu(std::vector<std::string> *cpuVector);
 
 
 private:
