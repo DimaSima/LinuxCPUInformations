@@ -2,7 +2,7 @@
 #include <QQmlApplicationEngine>
 
 #include <read_data_stream.h>
-#include <cpu.h>
+#include <cores_structure.h>
 
 int main(int argc, char *argv[])
 {
@@ -19,13 +19,8 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
+    std::vector<core> my_cores = ReadCoreInformations();
 
-    std::vector<std::string> cpu_stats;
-    cpu_stats = ReadCPUStats();
-    //parse_CPUVector(&cpu_stats);
-    //print_CPUVector(&cpu_stats);
-
-    cpu cpu(&cpu_stats);
 
 
     return app.exec();

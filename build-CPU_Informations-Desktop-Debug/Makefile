@@ -52,11 +52,9 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../CPU_Informations/cpu.cpp \
-		../CPU_Informations/main.cpp \
+SOURCES       = ../CPU_Informations/main.cpp \
 		../CPU_Informations/read_data_stream.cpp qrc_qml.cpp
-OBJECTS       = cpu.o \
-		main.o \
+OBJECTS       = main.o \
 		read_data_stream.o \
 		qrc_qml.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -138,9 +136,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../CPU_Informations/CPU_Informations.pro ../CPU_Informations/cpu.h \
-		../CPU_Informations/read_data_stream.h ../CPU_Informations/cpu.cpp \
-		../CPU_Informations/main.cpp \
+		../CPU_Informations/CPU_Informations.pro ../CPU_Informations/cores_structure.h \
+		../CPU_Informations/read_data_stream.h ../CPU_Informations/main.cpp \
 		../CPU_Informations/read_data_stream.cpp
 QMAKE_TARGET  = CPU_Informations
 DESTDIR       = 
@@ -332,8 +329,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CPU_Informations/qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CPU_Informations/cpu.h ../CPU_Informations/read_data_stream.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CPU_Informations/cpu.cpp ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CPU_Informations/cores_structure.h ../CPU_Informations/read_data_stream.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -388,13 +385,12 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean
 
 ####### Compile
 
-cpu.o: ../CPU_Informations/cpu.cpp ../CPU_Informations/cpu.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cpu.o ../CPU_Informations/cpu.cpp
-
-main.o: ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.h
+main.o: ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.h \
+		../CPU_Informations/cores_structure.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CPU_Informations/main.cpp
 
-read_data_stream.o: ../CPU_Informations/read_data_stream.cpp ../CPU_Informations/read_data_stream.h
+read_data_stream.o: ../CPU_Informations/read_data_stream.cpp ../CPU_Informations/read_data_stream.h \
+		../CPU_Informations/cores_structure.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o read_data_stream.o ../CPU_Informations/read_data_stream.cpp
 
 qrc_qml.o: qrc_qml.cpp 
