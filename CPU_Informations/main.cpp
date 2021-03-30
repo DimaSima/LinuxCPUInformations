@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 
     Cpu_core my_cores;
     ReadCoreInformations(my_cores);
+    my_cores.setNumbersCpuCores();
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("my_cores",&my_cores);

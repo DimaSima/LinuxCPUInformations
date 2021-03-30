@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_core_t {
-    QByteArrayData data[25];
-    char stringdata0[260];
+    QByteArrayData data[1];
+    char stringdata0[5];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,41 +31,10 @@ struct qt_meta_stringdata_core_t {
     )
 static const qt_meta_stringdata_core_t qt_meta_stringdata_core = {
     {
-QT_MOC_LITERAL(0, 0, 4), // "core"
-QT_MOC_LITERAL(1, 5, 16), // "processor_number"
-QT_MOC_LITERAL(2, 22, 11), // "std::string"
-QT_MOC_LITERAL(3, 34, 9), // "vendor_id"
-QT_MOC_LITERAL(4, 44, 10), // "cpu_family"
-QT_MOC_LITERAL(5, 55, 5), // "model"
-QT_MOC_LITERAL(6, 61, 10), // "model_name"
-QT_MOC_LITERAL(7, 72, 8), // "stepping"
-QT_MOC_LITERAL(8, 81, 7), // "cpu_MHz"
-QT_MOC_LITERAL(9, 89, 10), // "cache_size"
-QT_MOC_LITERAL(10, 100, 11), // "physical_id"
-QT_MOC_LITERAL(11, 112, 8), // "siblings"
-QT_MOC_LITERAL(12, 121, 7), // "core_id"
-QT_MOC_LITERAL(13, 129, 9), // "cpu_cores"
-QT_MOC_LITERAL(14, 139, 6), // "apicid"
-QT_MOC_LITERAL(15, 146, 11), // "init_apicid"
-QT_MOC_LITERAL(16, 158, 3), // "fpu"
-QT_MOC_LITERAL(17, 162, 14), // "fpu_exceptions"
-QT_MOC_LITERAL(18, 177, 11), // "cpuid_level"
-QT_MOC_LITERAL(19, 189, 2), // "wp"
-QT_MOC_LITERAL(20, 192, 8), // "bogomips"
-QT_MOC_LITERAL(21, 201, 12), // "clflush_size"
-QT_MOC_LITERAL(22, 214, 15), // "cache_alignment"
-QT_MOC_LITERAL(23, 230, 13), // "address_sizes"
-QT_MOC_LITERAL(24, 244, 15) // "power_managment"
+QT_MOC_LITERAL(0, 0, 4) // "core"
 
     },
-    "core\0processor_number\0std::string\0"
-    "vendor_id\0cpu_family\0model\0model_name\0"
-    "stepping\0cpu_MHz\0cache_size\0physical_id\0"
-    "siblings\0core_id\0cpu_cores\0apicid\0"
-    "init_apicid\0fpu\0fpu_exceptions\0"
-    "cpuid_level\0wp\0bogomips\0clflush_size\0"
-    "cache_alignment\0address_sizes\0"
-    "power_managment"
+    "core"
 };
 #undef QT_MOC_LITERAL
 
@@ -76,217 +45,27 @@ static const uint qt_meta_data_core[] = {
        0,       // classname
        0,    0, // classinfo
        0,    0, // methods
-      23,   14, // properties
+       0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        4,       // flags
        0,       // signalCount
 
- // properties: name, type, flags
-       1, 0x80000000 | 2, 0x0009500b,
-       3, 0x80000000 | 2, 0x0009500b,
-       4, 0x80000000 | 2, 0x0009500b,
-       5, 0x80000000 | 2, 0x0009500b,
-       6, 0x80000000 | 2, 0x0009500b,
-       7, 0x80000000 | 2, 0x0009500b,
-       8, 0x80000000 | 2, 0x0009500b,
-       9, 0x80000000 | 2, 0x0009500b,
-      10, 0x80000000 | 2, 0x0009500b,
-      11, 0x80000000 | 2, 0x0009500b,
-      12, 0x80000000 | 2, 0x0009500b,
-      13, 0x80000000 | 2, 0x0009500b,
-      14, 0x80000000 | 2, 0x0009500b,
-      15, 0x80000000 | 2, 0x0009500b,
-      16, 0x80000000 | 2, 0x0009500b,
-      17, 0x80000000 | 2, 0x0009500b,
-      18, 0x80000000 | 2, 0x0009500b,
-      19, 0x80000000 | 2, 0x0009500b,
-      20, 0x80000000 | 2, 0x0009500b,
-      21, 0x80000000 | 2, 0x0009500b,
-      22, 0x80000000 | 2, 0x0009500b,
-      23, 0x80000000 | 2, 0x0009500b,
-      24, 0x80000000 | 2, 0x0009500b,
-
        0        // eod
 };
-
-void core::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-
-#ifndef QT_NO_PROPERTIES
-    if (_c == QMetaObject::ReadProperty) {
-        auto *_t = reinterpret_cast<core *>(_o);
-        Q_UNUSED(_t)
-        void *_v = _a[0];
-        switch (_id) {
-        case 0: *reinterpret_cast< std::string*>(_v) = _t->m_processor_number; break;
-        case 1: *reinterpret_cast< std::string*>(_v) = _t->m_vendor_id; break;
-        case 2: *reinterpret_cast< std::string*>(_v) = _t->m_cpu_family; break;
-        case 3: *reinterpret_cast< std::string*>(_v) = _t->m_model; break;
-        case 4: *reinterpret_cast< std::string*>(_v) = _t->m_model_name; break;
-        case 5: *reinterpret_cast< std::string*>(_v) = _t->m_stepping; break;
-        case 6: *reinterpret_cast< std::string*>(_v) = _t->m_cpu_MHz; break;
-        case 7: *reinterpret_cast< std::string*>(_v) = _t->m_cache_size; break;
-        case 8: *reinterpret_cast< std::string*>(_v) = _t->m_physical_id; break;
-        case 9: *reinterpret_cast< std::string*>(_v) = _t->m_siblings; break;
-        case 10: *reinterpret_cast< std::string*>(_v) = _t->m_core_id; break;
-        case 11: *reinterpret_cast< std::string*>(_v) = _t->m_cpu_cores; break;
-        case 12: *reinterpret_cast< std::string*>(_v) = _t->m_apicid; break;
-        case 13: *reinterpret_cast< std::string*>(_v) = _t->m_init_apicid; break;
-        case 14: *reinterpret_cast< std::string*>(_v) = _t->m_fpu; break;
-        case 15: *reinterpret_cast< std::string*>(_v) = _t->m_fpu_exceptions; break;
-        case 16: *reinterpret_cast< std::string*>(_v) = _t->m_cpuid_level; break;
-        case 17: *reinterpret_cast< std::string*>(_v) = _t->m_wp; break;
-        case 18: *reinterpret_cast< std::string*>(_v) = _t->m_bogomips; break;
-        case 19: *reinterpret_cast< std::string*>(_v) = _t->m_clflush_size; break;
-        case 20: *reinterpret_cast< std::string*>(_v) = _t->m_cache_alignment; break;
-        case 21: *reinterpret_cast< std::string*>(_v) = _t->m_address_sizes; break;
-        case 22: *reinterpret_cast< std::string*>(_v) = _t->m_power_managment; break;
-        default: break;
-        }
-    } else if (_c == QMetaObject::WriteProperty) {
-        auto *_t = reinterpret_cast<core *>(_o);
-        Q_UNUSED(_t)
-        void *_v = _a[0];
-        switch (_id) {
-        case 0:
-            if (_t->m_processor_number != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_processor_number = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 1:
-            if (_t->m_vendor_id != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_vendor_id = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 2:
-            if (_t->m_cpu_family != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_cpu_family = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 3:
-            if (_t->m_model != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_model = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 4:
-            if (_t->m_model_name != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_model_name = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 5:
-            if (_t->m_stepping != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_stepping = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 6:
-            if (_t->m_cpu_MHz != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_cpu_MHz = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 7:
-            if (_t->m_cache_size != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_cache_size = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 8:
-            if (_t->m_physical_id != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_physical_id = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 9:
-            if (_t->m_siblings != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_siblings = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 10:
-            if (_t->m_core_id != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_core_id = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 11:
-            if (_t->m_cpu_cores != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_cpu_cores = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 12:
-            if (_t->m_apicid != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_apicid = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 13:
-            if (_t->m_init_apicid != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_init_apicid = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 14:
-            if (_t->m_fpu != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_fpu = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 15:
-            if (_t->m_fpu_exceptions != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_fpu_exceptions = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 16:
-            if (_t->m_cpuid_level != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_cpuid_level = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 17:
-            if (_t->m_wp != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_wp = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 18:
-            if (_t->m_bogomips != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_bogomips = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 19:
-            if (_t->m_clflush_size != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_clflush_size = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 20:
-            if (_t->m_cache_alignment != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_cache_alignment = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 21:
-            if (_t->m_address_sizes != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_address_sizes = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        case 22:
-            if (_t->m_power_managment != *reinterpret_cast< std::string*>(_v)) {
-                _t->m_power_managment = *reinterpret_cast< std::string*>(_v);
-            }
-            break;
-        default: break;
-        }
-    } else if (_c == QMetaObject::ResetProperty) {
-    }
-#endif // QT_NO_PROPERTIES
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
-}
 
 QT_INIT_METAOBJECT const QMetaObject core::staticMetaObject = { {
     nullptr,
     qt_meta_stringdata_core.data,
     qt_meta_data_core,
-    qt_static_metacall,
+    nullptr,
     nullptr,
     nullptr
 } };
 
 struct qt_meta_stringdata_Cpu_core_t {
-    QByteArrayData data[26];
-    char stringdata0[307];
+    QByteArrayData data[27];
+    char stringdata0[325];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -320,7 +99,8 @@ QT_MOC_LITERAL(21, 228, 11), // "setbogomips"
 QT_MOC_LITERAL(22, 240, 14), // "setclflushSize"
 QT_MOC_LITERAL(23, 255, 17), // "setcacheAlignment"
 QT_MOC_LITERAL(24, 273, 15), // "setaddressSizes"
-QT_MOC_LITERAL(25, 289, 17) // "setpowerManagment"
+QT_MOC_LITERAL(25, 289, 17), // "setpowerManagment"
+QT_MOC_LITERAL(26, 307, 17) // "setNumberCpuCores"
 
     },
     "Cpu_core\0setProcessor\0\0index\0setvendorId\0"
@@ -331,7 +111,7 @@ QT_MOC_LITERAL(25, 289, 17) // "setpowerManagment"
     "setfpu\0setfpuExceptions\0setcpuid_level\0"
     "setwp\0setbogomips\0setclflushSize\0"
     "setcacheAlignment\0setaddressSizes\0"
-    "setpowerManagment"
+    "setpowerManagment\0setNumberCpuCores"
 };
 #undef QT_MOC_LITERAL
 
@@ -341,7 +121,7 @@ static const uint qt_meta_data_Cpu_core[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -349,29 +129,30 @@ static const uint qt_meta_data_Cpu_core[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    1,  129,    2, 0x02 /* Public */,
-       4,    1,  132,    2, 0x02 /* Public */,
-       5,    1,  135,    2, 0x02 /* Public */,
-       6,    1,  138,    2, 0x02 /* Public */,
-       7,    1,  141,    2, 0x02 /* Public */,
-       8,    1,  144,    2, 0x02 /* Public */,
-       9,    1,  147,    2, 0x02 /* Public */,
-      10,    1,  150,    2, 0x02 /* Public */,
-      11,    1,  153,    2, 0x02 /* Public */,
-      12,    1,  156,    2, 0x02 /* Public */,
-      13,    1,  159,    2, 0x02 /* Public */,
-      14,    1,  162,    2, 0x02 /* Public */,
-      15,    1,  165,    2, 0x02 /* Public */,
-      16,    1,  168,    2, 0x02 /* Public */,
-      17,    1,  171,    2, 0x02 /* Public */,
-      18,    1,  174,    2, 0x02 /* Public */,
-      19,    1,  177,    2, 0x02 /* Public */,
-      20,    1,  180,    2, 0x02 /* Public */,
-      21,    1,  183,    2, 0x02 /* Public */,
-      22,    1,  186,    2, 0x02 /* Public */,
-      23,    1,  189,    2, 0x02 /* Public */,
-      24,    1,  192,    2, 0x02 /* Public */,
-      25,    1,  195,    2, 0x02 /* Public */,
+       1,    1,  134,    2, 0x02 /* Public */,
+       4,    1,  137,    2, 0x02 /* Public */,
+       5,    1,  140,    2, 0x02 /* Public */,
+       6,    1,  143,    2, 0x02 /* Public */,
+       7,    1,  146,    2, 0x02 /* Public */,
+       8,    1,  149,    2, 0x02 /* Public */,
+       9,    1,  152,    2, 0x02 /* Public */,
+      10,    1,  155,    2, 0x02 /* Public */,
+      11,    1,  158,    2, 0x02 /* Public */,
+      12,    1,  161,    2, 0x02 /* Public */,
+      13,    1,  164,    2, 0x02 /* Public */,
+      14,    1,  167,    2, 0x02 /* Public */,
+      15,    1,  170,    2, 0x02 /* Public */,
+      16,    1,  173,    2, 0x02 /* Public */,
+      17,    1,  176,    2, 0x02 /* Public */,
+      18,    1,  179,    2, 0x02 /* Public */,
+      19,    1,  182,    2, 0x02 /* Public */,
+      20,    1,  185,    2, 0x02 /* Public */,
+      21,    1,  188,    2, 0x02 /* Public */,
+      22,    1,  191,    2, 0x02 /* Public */,
+      23,    1,  194,    2, 0x02 /* Public */,
+      24,    1,  197,    2, 0x02 /* Public */,
+      25,    1,  200,    2, 0x02 /* Public */,
+      26,    0,  203,    2, 0x02 /* Public */,
 
  // methods: parameters
     QMetaType::QString, QMetaType::Int,    3,
@@ -397,6 +178,7 @@ static const uint qt_meta_data_Cpu_core[] = {
     QMetaType::QString, QMetaType::Int,    3,
     QMetaType::QString, QMetaType::Int,    3,
     QMetaType::QString, QMetaType::Int,    3,
+    QMetaType::Int,
 
        0        // eod
 };
@@ -453,6 +235,8 @@ void Cpu_core::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         case 22: { QString _r = _t->setpowerManagment((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
+        case 23: { int _r = _t->setNumberCpuCores();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     }
@@ -487,13 +271,13 @@ int Cpu_core::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 24)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 23;
+        _id -= 24;
     }
     return _id;
 }

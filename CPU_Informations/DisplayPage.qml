@@ -17,27 +17,19 @@ Item {
 
         C1.SplitView {
             anchors.fill: parent
-
-            Item {
-                id: core1
-                width: parent.width/2
-                GridLayout {
+            Repeater {
+                model: my_cores.setNumberCpuCores();
+                Item {
+                    width: parent.width/my_cores.setNumberCpuCores()
                     anchors.margins: 10
-                    Text { text: my_cores.setProcessor(0) }
-                    Text { text: my_cores.setProcessor(1) }
+                    GridLayout {
+                        Text { text: my_cores.setProcessor(index) }
+                        Text { text: "Anzahl Kerne: "+my_cores.setNumberCpuCores() }
+                    }
 
                 }
-
             }
-
-            Item {
-                id: core2
-                width: parent.width/2
-            }
-
         }
-
     }
-
 }
 

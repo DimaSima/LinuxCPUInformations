@@ -33,7 +33,7 @@ ApplicationWindow {
             border.color: "black"
             radius: 20
         }
-        text: "Read in the CPU Informations"
+        text: "Read in the CPU Information"
         font.pixelSize: 22
         font.italic: true
         anchors.centerIn: parent

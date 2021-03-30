@@ -37,7 +37,7 @@ struct core
         std::string m_address_sizes;
         std::string m_power_managment;
 
-
+        /*
         Q_PROPERTY(std::string processor_number MEMBER m_processor_number);
         Q_PROPERTY(std::string vendor_id MEMBER m_vendor_id);
         Q_PROPERTY(std::string cpu_family MEMBER m_cpu_family);
@@ -60,7 +60,7 @@ struct core
         Q_PROPERTY(std::string clflush_size MEMBER m_clflush_size);
         Q_PROPERTY(std::string cache_alignment MEMBER m_cache_alignment);
         Q_PROPERTY(std::string address_sizes MEMBER m_address_sizes);
-        Q_PROPERTY(std::string power_managment MEMBER m_power_managment);
+        Q_PROPERTY(std::string power_managment MEMBER m_power_managment); */
 };
 
 class Cpu_core : public QObject
@@ -92,10 +92,14 @@ public:
     Q_INVOKABLE QString setcacheAlignment(int index);
     Q_INVOKABLE QString setaddressSizes(int index);
     Q_INVOKABLE QString setpowerManagment(int index);
+    Q_INVOKABLE int setNumberCpuCores();
 
-
+    void setNumbersCpuCores();
 
     std::vector<core> all_CPUcores;
+
+private:
+    qint8 numbers_Cpucores = 0;
 
 signals:
 

@@ -138,6 +138,16 @@ QString Cpu_core::setpowerManagment(int index)
     return power_manag;
 }
 
+int Cpu_core::setNumberCpuCores()
+{
+    return Cpu_core::numbers_Cpucores;
+}
+
+void Cpu_core::setNumbersCpuCores()
+{
+    Cpu_core::numbers_Cpucores = Cpu_core::all_CPUcores.size();
+}
+
 
 Cpu_core::Cpu_core(QObject *parent) : QObject(parent)
 {
