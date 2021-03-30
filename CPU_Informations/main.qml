@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import QtGraphicalEffects 1.0
 
 
 ApplicationWindow {
@@ -11,16 +12,25 @@ ApplicationWindow {
     height: 580
     title: qsTr("Linux CPU Informations")
     Loader {id: displayloader}
-    color: "#3c3c3c"
+    //color: "#3c3c3c"
+
+    LinearGradient {
+        anchors.fill: parent
+        gradient: Gradient {
+            GradientStop {position: 0.5; color: "#5f9ea0" }
+            GradientStop {position: 1.0; color: "#2f4f4f" }
+        }
+    }
+
 
     Text {
         height: 26
-        text: qsTr("Welcome to the platform for the presentation of CPU information")
+        text: qsTr("Welcome to the platform for the\n presentation of CPU information")
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenterOffset: -50
+        anchors.verticalCenterOffset: -100
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 22
-        font.italic: true
+        font.family: "Arial"
         anchors.margins: 40
         color: "white"
     }
@@ -28,14 +38,16 @@ ApplicationWindow {
     Button {
         id: btnid
         background: Rectangle {
-            color: "#f0e68c"
+            //color: "#f0e68c"
+            color: "transparent"
             border.width: 1
-            border.color: "black"
+            border.color: "white"
             radius: 20
         }
-        text: "Read in the CPU Information"
+        text: "<font color='white'>"+"Start"+"</font>"
         font.pixelSize: 22
-        font.italic: true
+        //font.italic: true
+        font.family: "Arial"
         anchors.centerIn: parent
         onClicked: {
             displayloader.source = "DisplayPage.qml"
