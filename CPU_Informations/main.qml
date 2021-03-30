@@ -28,7 +28,7 @@ ApplicationWindow {
     Button {
         id: btnid
         background: Rectangle {
-            color: "red"
+            color: "#f0e68c"
             border.width: 1
             border.color: "black"
             radius: 20
