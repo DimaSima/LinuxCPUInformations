@@ -23,6 +23,8 @@ Item {
                 width: parent.width/2
                 GridLayout {
                     anchors.margins: 10
+                    Text { text: my_cores.setProcessor(0) }
+                    Text { text: my_cores.setProcessor(1) }
 
                 }
 
