@@ -3,25 +3,26 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-Window {
+ApplicationWindow {
     id: mainwindow
     visible: true
     width: 740
     height: 580
     title: qsTr("Linux CPU Informations")
     Loader {id: displayloader}
-    color: "dodgerblue"
+    color: "#3c3c3c"
 
-    Label {
+    Text {
+        height: 26
         text: qsTr("Welcome to the platform for the presentation of CPU information")
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenterOffset: -50
+        anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 22
         font.italic: true
-        anchors.bottom: btnid.top
-        anchors.left: parent.left
-        anchors.right: parent.right
         anchors.margins: 40
+        color: "white"
     }
-
 
     Button {
         id: btnid

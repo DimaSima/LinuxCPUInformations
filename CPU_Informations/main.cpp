@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include <read_data_stream.h>
 #include <cores_structure.h>
@@ -10,7 +11,12 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+    std::vector<core> my_cores = ReadCoreInformations();
+
     QQmlApplicationEngine engine;
+
+    engine.rootContext()->setContextProperty("my_cores",&my_cores);
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -18,9 +24,6 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
     engine.load(url);
-
-    std::vector<core> my_cores = ReadCoreInformations();
-
 
 
     return app.exec();

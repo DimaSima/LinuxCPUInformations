@@ -6,19 +6,25 @@
 
 std::vector<core> ReadCoreInformations()
 {
+    /* This function reads the data from the Linux command window
+     * and writes it to the corresponding core-struct
+     * returns all cores in a vector
+    */
+
     std::vector<core> all_CPUcores;
     std::ifstream cpuInfo("/proc/cpuinfo");
     std::string line;
 
     const std::string CPU_CORE("processor");
     const std::size_t size_CPU_CORE = CPU_CORE.size();
+    // ignore flags and bugs information
     const std::string CPU_FLAGS("flags");
     const std::size_t size_CPU_FLAGS = CPU_FLAGS.size();
     const std::string CPU_BUGS("bugs");
     const std::size_t size_CPU_BUGS = CPU_BUGS.size();
 
     std::size_t index_core = 0;
-    int new_core_flag = false;
+    bool new_core_flag = false;
 
     while (std::getline(cpuInfo,line))
     {
@@ -28,12 +34,15 @@ std::vector<core> ReadCoreInformations()
             index_core+=1;
         }
 
+        // check if information from new core is incoming
         if (new_core_flag)
         {
+            // add new core into vector variable
             all_CPUcores.emplace_back(core());
             new_core_flag = false;
         }
 
+        // ignore flags and bugs information
         if (line.compare(0,size_CPU_FLAGS,CPU_FLAGS)==0) {continue;}
         else if (line.compare(0,size_CPU_BUGS,CPU_BUGS)==0) {continue;}
         else {
@@ -46,6 +55,10 @@ std::vector<core> ReadCoreInformations()
 
 void describeCore(std::vector<core> &all_cores, size_t index, std::string &line)
 {
+    /* This function compare the incoming line-value with specifig string-name
+     * and  writes it into Struct variable
+     * Also the current index of the vector is passed, to determine the current cpu-core
+    */
 
     if (line.compare(0,9,"processor")==0)
     {
@@ -212,6 +225,9 @@ void describeCore(std::vector<core> &all_cores, size_t index, std::string &line)
 
 void parseCPUInformation(std::string &line)
 {
+    /* This function parse the string variable line
+     * Everything that comes after ":" is taken over
+     * */
     std::string delimiter = ":";
     line = line.substr(line.find(delimiter)+1);
 }
