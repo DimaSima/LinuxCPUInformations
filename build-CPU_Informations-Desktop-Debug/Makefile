@@ -55,13 +55,11 @@ OBJECTS_DIR   = ./
 SOURCES       = ../CPU_Informations/cpu_core.cpp \
 		../CPU_Informations/main.cpp \
 		../CPU_Informations/read_data_stream.cpp qrc_qml.cpp \
-		moc_cores_structure.cpp \
 		moc_cpu_core.cpp
 OBJECTS       = cpu_core.o \
 		main.o \
 		read_data_stream.o \
 		qrc_qml.o \
-		moc_cores_structure.o \
 		moc_cpu_core.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -142,8 +140,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../CPU_Informations/CPU_Informations.pro ../CPU_Informations/cores_structure.h \
-		../CPU_Informations/cpu_core.h \
+		../CPU_Informations/CPU_Informations.pro ../CPU_Informations/cpu_core.h \
 		../CPU_Informations/read_data_stream.h ../CPU_Informations/cpu_core.cpp \
 		../CPU_Informations/main.cpp \
 		../CPU_Informations/read_data_stream.cpp
@@ -337,7 +334,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../CPU_Informations/qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../CPU_Informations/cores_structure.h ../CPU_Informations/cpu_core.h ../CPU_Informations/read_data_stream.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CPU_Informations/cpu_core.h ../CPU_Informations/read_data_stream.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../CPU_Informations/cpu_core.cpp ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.cpp $(DISTDIR)/
 
 
@@ -377,14 +374,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_cores_structure.cpp moc_cpu_core.cpp
+compiler_moc_header_make_all: moc_cpu_core.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_cores_structure.cpp moc_cpu_core.cpp
-moc_cores_structure.cpp: ../CPU_Informations/cores_structure.h \
-		moc_predefs.h \
-		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/dima/Projekt/LinuxCPUInformations/build-CPU_Informations-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/dima/Projekt/LinuxCPUInformations/CPU_Informations -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CPU_Informations/cores_structure.h -o moc_cores_structure.cpp
-
+	-$(DEL_FILE) moc_cpu_core.cpp
 moc_cpu_core.cpp: ../CPU_Informations/cpu_core.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -408,20 +400,15 @@ cpu_core.o: ../CPU_Informations/cpu_core.cpp ../CPU_Informations/cpu_core.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cpu_core.o ../CPU_Informations/cpu_core.cpp
 
 main.o: ../CPU_Informations/main.cpp ../CPU_Informations/read_data_stream.h \
-		../CPU_Informations/cores_structure.h \
 		../CPU_Informations/cpu_core.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CPU_Informations/main.cpp
 
 read_data_stream.o: ../CPU_Informations/read_data_stream.cpp ../CPU_Informations/read_data_stream.h \
-		../CPU_Informations/cores_structure.h \
 		../CPU_Informations/cpu_core.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o read_data_stream.o ../CPU_Informations/read_data_stream.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
-
-moc_cores_structure.o: moc_cores_structure.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cores_structure.o moc_cores_structure.cpp
 
 moc_cpu_core.o: moc_cpu_core.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_cpu_core.o moc_cpu_core.cpp

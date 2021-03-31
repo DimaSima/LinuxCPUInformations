@@ -1,5 +1,7 @@
 #include "cpu_core.h"
 
+
+
 QString Cpu_core::setProcessor(int index)
 {
     QString proc_number = QString::fromStdString(Cpu_core::all_CPUcores.at(index).m_processor_number);

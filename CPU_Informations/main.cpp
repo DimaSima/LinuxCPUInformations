@@ -14,11 +14,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     Cpu_core my_cores;
-    ReadCoreInformations(my_cores);
-    my_cores.setNumbersCpuCores();
+    ReadCoreInformations(my_cores);     // write cpu info in struct member
+    my_cores.setNumbersCpuCores();      // determine the number of cores
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("my_cores",&my_cores);
+    engine.rootContext()->setContextProperty("my_cores",&my_cores);     // binding C++ property to QML
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

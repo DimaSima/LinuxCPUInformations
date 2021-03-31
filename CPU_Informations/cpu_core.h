@@ -37,30 +37,6 @@ struct core
         std::string m_address_sizes;
         std::string m_power_managment;
 
-        /*
-        Q_PROPERTY(std::string processor_number MEMBER m_processor_number);
-        Q_PROPERTY(std::string vendor_id MEMBER m_vendor_id);
-        Q_PROPERTY(std::string cpu_family MEMBER m_cpu_family);
-        Q_PROPERTY(std::string model MEMBER m_model);
-        Q_PROPERTY(std::string model_name MEMBER m_model_name);
-        Q_PROPERTY(std::string stepping MEMBER m_stepping);
-        Q_PROPERTY(std::string cpu_MHz MEMBER m_cpu_MHz);
-        Q_PROPERTY(std::string cache_size MEMBER m_cache_size);
-        Q_PROPERTY(std::string physical_id MEMBER m_physical_id);
-        Q_PROPERTY(std::string siblings MEMBER m_siblings);
-        Q_PROPERTY(std::string core_id MEMBER m_core_id);
-        Q_PROPERTY(std::string cpu_cores MEMBER m_cpu_cores);
-        Q_PROPERTY(std::string apicid MEMBER m_apicid);
-        Q_PROPERTY(std::string init_apicid MEMBER m_init_apicid);
-        Q_PROPERTY(std::string fpu MEMBER m_fpu);
-        Q_PROPERTY(std::string fpu_exceptions MEMBER m_fpu_exceptions);
-        Q_PROPERTY(std::string cpuid_level MEMBER m_cpuid_level);
-        Q_PROPERTY(std::string wp MEMBER m_wp);
-        Q_PROPERTY(std::string bogomips MEMBER m_bogomips);
-        Q_PROPERTY(std::string clflush_size MEMBER m_clflush_size);
-        Q_PROPERTY(std::string cache_alignment MEMBER m_cache_alignment);
-        Q_PROPERTY(std::string address_sizes MEMBER m_address_sizes);
-        Q_PROPERTY(std::string power_managment MEMBER m_power_managment); */
 };
 
 class Cpu_core : public QObject
@@ -69,6 +45,7 @@ class Cpu_core : public QObject
 
 public:
     explicit Cpu_core(QObject *parent = nullptr);
+    // Set struct member variables in QML
     Q_INVOKABLE QString setProcessor(int index);
     Q_INVOKABLE QString setvendorId(int index);
     Q_INVOKABLE QString setcpuFamily(int index);

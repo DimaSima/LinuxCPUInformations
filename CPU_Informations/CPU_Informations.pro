@@ -32,6 +32,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    cores_structure.h \
     cpu_core.h \
     read_data_stream.h

@@ -27,8 +27,8 @@ Item {
             id: splitview
             anchors.fill: parent
             Repeater {
-                model: my_cores.setNumberCpuCores();
-                Item {
+                model: my_cores.setNumberCpuCores();        // determine the numbers of cores
+                Item {                                      // create for each core an item
                     width: parent.width/my_cores.setNumberCpuCores()
                     anchors.margins: 10
                     Column {

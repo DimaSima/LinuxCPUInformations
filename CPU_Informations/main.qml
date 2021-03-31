@@ -12,7 +12,28 @@ ApplicationWindow {
     height: 580
     title: qsTr("Linux CPU Informations")
     Loader {id: displayloader}
-    //color: "#3c3c3c"
+
+    menuBar: MenuBar {
+        Menu {
+            title: qsTr("&File")
+            Action { text: qsTr("&New...") }
+            Action { text: qsTr("&Open...") }
+            Action { text: qsTr("&Save...") }
+            Action { text: qsTr("Save &As ...") }
+            MenuSeparator {}
+            Action { text: qsTr("&Quit...") }
+        }
+        Menu {
+            title: qsTr("&Edit")
+            Action { text: qsTr("&Cut...") }
+            Action { text: qsTr("&Copy...") }
+            Action { text: qsTr("&Paste...") }
+        }
+        Menu {
+            title: qsTr("&Help")
+            Action { text: qsTr("&About...") }
+        }
+    }
 
     LinearGradient {
         anchors.fill: parent
@@ -46,12 +67,10 @@ ApplicationWindow {
         }
         text: "<font color='white'>"+"Start"+"</font>"
         font.pixelSize: 22
-        //font.italic: true
         font.family: "Arial"
         anchors.centerIn: parent
         onClicked: {
-            displayloader.source = "DisplayPage.qml"
-
+            displayloader.source = "DisplayPage.qml"    // start new window DisplayPage
         }
     }
 }

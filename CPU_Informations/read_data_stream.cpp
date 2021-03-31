@@ -8,7 +8,6 @@ void ReadCoreInformations(Cpu_core & my_core)
 {
     /* This function reads the data from the Linux command window
      * and writes it to the corresponding core-struct
-     * returns all cores in a vector
     */
 
     std::ifstream cpuInfo("/proc/cpuinfo");
@@ -56,166 +55,142 @@ void describeCore(std::vector<core> &all_cores, size_t index, std::string &line)
      * and  writes it into Struct variable
      * Also the current index of the vector is passed, to determine the current cpu-core
     */
-
     if (line.compare(0,9,"processor")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_processor_number = line;
-        std::cout << "cores processor: " << all_cores.at(index).m_processor_number << std::endl;
     }
 
     else if (line.compare(0,9,"vendor_id")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_vendor_id = line;
-        std::cout << "cores vendor: " << all_cores.at(index).m_vendor_id << std::endl;
     }
 
     else if (line.compare(0,10,"cpu family")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_cpu_family = line;
-        std::cout << "cores cpu family: " << all_cores.at(index).m_cpu_family << std::endl;
     }
 
     else if (line.compare(0,5,"model")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_model = line;
-        std::cout << "cores model: " << all_cores.at(index).m_model << std::endl;
     }
 
     else if (line.compare(0,10,"model name")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_model_name = line;
-        std::cout << "cores model name: " << all_cores.at(index).m_model_name << std::endl;
     }
 
     else if (line.compare(0,8,"stepping")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_stepping = line;
-        std::cout << "cores stepping: " << all_cores.at(index).m_stepping << std::endl;
     }
 
     else if (line.compare(0,7,"cpu MHz")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_cpu_MHz = line;
-        std::cout << "cores cpu Mhz: " << all_cores.at(index).m_cpu_MHz << std::endl;
     }
 
     else if (line.compare(0,10,"cache size")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_cache_size = line;
-        std::cout << "cores cache size: " << all_cores.at(index).m_cache_size << std::endl;
     }
 
     else if (line.compare(0,11,"physical id")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_physical_id = line;
-        std::cout << "cores physical id: " << all_cores.at(index).m_physical_id << std::endl;
     }
 
     else if (line.compare(0,8,"siblings")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_siblings = line;
-        std::cout << "cores siblings: " << all_cores.at(index).m_siblings << std::endl;
     }
 
     else if (line.compare(0,7,"core id")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_core_id = line;
-        std::cout << "cores core id: " << all_cores.at(index).m_core_id << std::endl;
     }
 
     else if (line.compare(0,9,"cpu cores")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_cpu_cores = line;
-        std::cout << "cores cpu cores: " << all_cores.at(index).m_cpu_cores << std::endl;
     }
 
     else if (line.compare(0,6,"apicid")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_apicid = line;
-        std::cout << "cores apicid: " << all_cores.at(index).m_apicid << std::endl;
     }
 
     else if (line.compare(0,14,"initial apicid")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_init_apicid = line;
-        std::cout << "cores init apicid: " << all_cores.at(index).m_init_apicid << std::endl;
     }
 
     else if (line.compare(0,3,"fpu")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_fpu = line;
-        std::cout << "cores fpu: " << all_cores.at(index).m_fpu << std::endl;
     }
 
     else if (line.compare(0,13,"fpu_exception")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_fpu_exceptions = line;
-        std::cout << "cores fpu excep: " << all_cores.at(index).m_fpu_exceptions << std::endl;
     }
 
     else if (line.compare(0,11,"cpuid level")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_cpuid_level = line;
-        std::cout << "cores cpuid level: " << all_cores.at(index).m_cpuid_level << std::endl;
     }
 
     else if (line.compare(0,2,"wp")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_wp = line;
-        std::cout << "cores wp: " << all_cores.at(index).m_wp << std::endl;
     }
 
     else if (line.compare(0,8,"bogomips")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_bogomips = line;
-        std::cout << "cores bogomips: " << all_cores.at(index).m_bogomips << std::endl;
     }
 
     else if (line.compare(0,12,"clflush size")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_clflush_size = line;
-        std::cout << "cores clflush size: " << all_cores.at(index).m_clflush_size << std::endl;
     }
 
     else if (line.compare(0,15,"cache_alignment")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_cache_alignment = line;
-        std::cout << "cores cache align: " << all_cores.at(index).m_cache_alignment << std::endl;
     }
 
     else if (line.compare(0,13,"address sizes")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_address_sizes = line;
-        std::cout << "cores addr sizes: " << all_cores.at(index).m_address_sizes << std::endl;
     }
 
     else if (line.compare(0,16,"power management")==0)
     {
         parseCPUInformation(line);
         all_cores.at(index).m_power_managment = line;
-        std::cout << "cores power manag: " << all_cores.at(index).m_power_managment << std::endl;
     }
 }
 
